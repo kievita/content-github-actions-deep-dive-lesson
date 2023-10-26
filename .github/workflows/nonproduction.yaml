@@ -26,6 +26,7 @@ jobs:
           node-version: 14
       - name: build site
         run: |
+          git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
           npm ci
           npm run build
       - name: deploy files to bucket
